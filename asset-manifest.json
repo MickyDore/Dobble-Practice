@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Dobble-Practice/static/css/main.9c112015.chunk.css",
+    "main.js": "/Dobble-Practice/static/js/main.ea73c454.chunk.js",
+    "main.js.map": "/Dobble-Practice/static/js/main.ea73c454.chunk.js.map",
+    "runtime~main.js": "/Dobble-Practice/static/js/runtime~main.d0dfb294.js",
+    "runtime~main.js.map": "/Dobble-Practice/static/js/runtime~main.d0dfb294.js.map",
+    "static/js/2.f6c98486.chunk.js": "/Dobble-Practice/static/js/2.f6c98486.chunk.js",
+    "static/js/2.f6c98486.chunk.js.map": "/Dobble-Practice/static/js/2.f6c98486.chunk.js.map",
+    "index.html": "/Dobble-Practice/index.html",
+    "precache-manifest.56aee2fb2589d43c49d4e18f2879bece.js": "/Dobble-Practice/precache-manifest.56aee2fb2589d43c49d4e18f2879bece.js",
+    "service-worker.js": "/Dobble-Practice/service-worker.js",
+    "static/css/main.9c112015.chunk.css.map": "/Dobble-Practice/static/css/main.9c112015.chunk.css.map"
+  }
+}
