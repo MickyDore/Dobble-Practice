@@ -42,10 +42,6 @@ function createGame() {
         cards.push(Card3)
       }
   }
-  //
-  // let intersection = new Set(
-  //     [...compare1.symbols].filter(x => compare2.symbols.has(x)));
-  // console.log(intersection);
 
   return shuffle(cards);
 }
