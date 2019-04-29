@@ -42,14 +42,24 @@
   height: 250px;
   background-color: #C7F1E7;
   border-radius: 25px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .symbol {
-  padding-top: 11px;
+  width: 25%;
+  height: 45%;
+  padding: 15px;
 }
 
 .symbol-player {
   cursor: pointer;
+}
+
+.symbol img {
+  width: 100%;
 }
 
 .interactiveContainer {

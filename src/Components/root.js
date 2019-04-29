@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../Styles/root.css';
 import utils from '../Utils/gameUtils.js';
+const iconPath = process.env.PUBLIC_URL + '/assets/images/';
 
 class Root extends Component {
 
@@ -11,7 +12,8 @@ class Root extends Component {
       currentCard: "",
       currentGameCard: "",
       currentDeck: [],
-      currentScore: 0
+      currentScore: 0,
+      currentLives: 3
     }
   };
 
@@ -58,11 +60,15 @@ class Root extends Component {
       <div className="gameContainer">
         <div className="cardsContainer">
           <div className="card">{utils.shuffle([...this.state.currentCard.symbols]).map((symbol, index) => {
-              return <div key={index} value={symbol} onClick={() => this.handleSymbolClick(symbol)} className="symbol symbol-player">{symbol}</div>
+              let randomAngle = (Math.floor(Math.random() * 90 + 1) - 45);
+              return <div key={index} style={{transform: `rotate(${randomAngle}deg)`}} value={symbol} onClick={() => this.handleSymbolClick(symbol)} className="symbol symbol-player"><img src={`${iconPath}${symbol}.png`}></img></div>
             })}</div>
-          <div className="card">{utils.shuffle([...this.state.currentDeck[0].symbols]).map((symbol, index) => {
-              return <div key={index} className="symbol">{symbol}</div>
-            })}</div>
+          <div className="card">
+            {utils.shuffle([...this.state.currentDeck[0].symbols]).map((symbol, index) => {
+              let randomAngle = (Math.floor(Math.random() * 90 + 1) - 45);
+              return <div key={index} style={{transform: `rotate(${randomAngle}deg)`}} className="symbol"><img src={`${iconPath}${symbol}.png`}></img></div>
+            })}
+          </div>
         </div>
         <div className="interactiveContainer">
           <div className="scoreContainer">Score: {this.state.currentScore}</div>
