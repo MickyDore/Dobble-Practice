@@ -33,6 +33,7 @@
   color: #71C5AC;
   font-family: 'Pacifico', cursive;
   font-size: 2em;
+  width: 75%;
 }
 
 .gameInfoButton {
@@ -111,6 +112,10 @@
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+.card-player {
+    border: 2px solid #f1c40f;
 }
 
 .symbol {

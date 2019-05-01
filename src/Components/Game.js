@@ -78,7 +78,7 @@ class Game extends Component {
     return (
       <div className="gameContainer">
         <div className="cardsContainer">
-          <div className="card">
+          <div className="card card-player">
             {utils.shuffle([...this.state.currentCard.symbols]).map((symbol, index) => {
               let randomAngle = (Math.floor(Math.random() * 90 + 1) - 45);
               return <div

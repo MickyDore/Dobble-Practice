@@ -14,7 +14,7 @@ class App extends Component {
       currentScore: 0,
       currentHiScore: 0,
       timerDate: Date.now() + 180000,
-      gameEndingtext: "Click the button below to start a game!"
+      gameEndingtext: "Click the symbol on the left card that matches with a symbol on the right card!"
     }
   }
   
