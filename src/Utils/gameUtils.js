@@ -1,3 +1,4 @@
+//Class expression for a single card object that contains multiple symbols
 class Card {
   constructor() {
     this.symbols = new Set()
@@ -8,6 +9,8 @@ class Card {
   }
 }
 
+
+//Creates a deck of 57 cards with 8 symbols
 function createGame() {
   var i, j, k
   var r=1
@@ -46,17 +49,15 @@ function createGame() {
   return shuffle(cards);
 }
 
+//Shuffles a deck of cards
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
-  // While there remain elements to shuffle...
   while (0 !== currentIndex) {
 
-    // Pick a remaining element...
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
 
-    // And swap it with the current element.
     temporaryValue = array[currentIndex];
     array[currentIndex] = array[randomIndex];
     array[randomIndex] = temporaryValue;
@@ -65,6 +66,7 @@ function shuffle(array) {
   return array;
 }
 
+//Finds the matching symbol between two cards
 function findMatch(a, b) {
   let intersection =
       [...a.symbols].filter(x => b.symbols.has(x));

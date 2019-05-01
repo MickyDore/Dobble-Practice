@@ -3,38 +3,48 @@ import '../Styles/root.css';
 import utils from '../Utils/gameUtils.js';
 const iconPath = process.env.PUBLIC_URL + '/assets/images/';
 
-class Root extends Component {
+class Game extends Component {
 
   constructor(props) {
     super(props)
-
+    
     this.state = {
-      currentCard: "", //the users current card displayed on the left hand side
-      currentGameCard: "", //the current card in play displayed on the right hand side
-      currentDeck: [], //the deck of remaining playing cards
-      currentScore: 0, //the users current score - number of correctly guessed matches
-      currentLives: 3 //the number of lives left - incorrect guesses lose a life
+      currentHiscore: 0,
+      currentScore: 0,
+      currentCard: "",
+      currentGameCard: "",
+      currentDeck: [],
+      currentLives: 3,
     }
-  };
-
-
-  componentWillMount = () => {
-    this.createGame();
+    
   }
-
-  componentDidMount = () => {
-
+  
+  componentDidUpdate = (nextProps, nextState) => {
+    if ((!this.props.activeGame) && (nextProps.activeGame)) {
+      this.createGame();
+    }
   }
-
-  //Handle what happens when the user clicks on a symbol
+  
+  //Subtract a life when a user clicks a symbol that isn't a life
+  loseALife = () => {
+    this.setState({
+      currentCard: this.state.currentDeck.shift(),
+      currentLives: this.state.currentLives - 1
+    }, () => {
+      if (this.state.currentLives == 0) {
+        this.props.handleNewGame()
+      }
+    })
+  }
+  
   handleSymbolClick = (symbol) => {
     //Check if the symbol is the correct match
     let match = utils.findMatch(this.state.currentCard, this.state.currentDeck[0])
     if (symbol == match) {
       this.setState({
-        currentScore: this.state.currentScore + 1,
         currentCard: this.state.currentDeck.shift()
       })
+      this.props.updateScore(this.props.currentScore + 1)
       if (this.state.currentDeck.length == 0) {
         alert("Congratulations, you won the game!");
         this.createGame();
@@ -43,36 +53,26 @@ class Root extends Component {
       this.loseALife()
     }
   }
-
-  //Create a new game of dobble with a fresh deck
+  
   createGame = () => {
     let deck = utils.createGame()
     let currentCard = deck.shift()
+    this.props.updateScore(0)
     this.setState({
       currentCard: currentCard,
       currentDeck: deck,
-      currentScore: 0,
-      currentLives: 3
+      currentLives: 3,
     })
   }
-
-  //Subtract a life when a user clicks a symbol that isn't a life
-  loseALife = () => {
-    this.setState({
-      currentLives: this.state.currentLives - 1
-    }, () => {
-      if (this.state.currentLives == 0) {
-        alert("You have run out of lives!");
-        this.createGame();
-      }
-    })
+  
+  componentWillMount = () => {
+    this.createGame();
   }
-
-
+  
   render() {
     let lives = [];
     for (var i = 0; i < this.state.currentLives; i++) {
-      lives.push(<div className='heartIcon'><img alt="life" src={`${iconPath}heart.png`}></img></div>);
+      lives.push(<div key={i} className='heartIcon'><img alt="life" src={`${iconPath}heart.png`}></img></div>);
     }
 
     return (
@@ -105,9 +105,9 @@ class Root extends Component {
         </div>
         <div className="interactiveContainer">
           <div className="optionsContainer">
-            <div className="optionsButton" onClick={this.createGame}>New Game</div>
+            <div className="optionsButton" onClick={() => this.props.handleNewGame(this.state.currentScore)}>New Game</div>
           </div>
-          <div className="scoreContainer">Score: {this.state.currentScore}</div>
+          <div className="scoreContainer">Score: {this.props.currentScore}</div>
           <div className="livesContainer">
             <div className="livesTextContainer">Lives: </div>
             <div className="heartsContainer">
@@ -120,4 +120,4 @@ class Root extends Component {
   }
 }
 
-export default Root;
+export default Game;

@@ -9,13 +9,78 @@
   height: 100vh;
   width: 100%;
   text-align: center;
+  position: relative;
+}
+
+.gameInfoContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: calc(100vh - 150px);
+  margin: 15px auto;
+  border-radius: 25px;
+  background-color: #C7F1E7;
+  z-index: 100;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.gameInfoTextContainer {
+  color: #71C5AC;
+  font-family: 'Pacifico', cursive;
+  font-size: 2em;
+}
+
+.gameInfoButton {
+  margin-top: 40px;
+  padding: 15px;
+  background-color: #71C5AC;
+  color: #C7F1E7;
+  font-family: 'Pacifico', cursive;
+  font-size: 1.3em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.headerContainer {
+  width: 80%;
+  margin: 0 auto;
+  padding: 0px 10px;
+  padding-top: 15px;
+  display: flex;
+}
+
+.timerContainer {
+  width: 33%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  color: #C7F1E7;
+  font-family: 'Pacifico', cursive;
+  font-size: 1.5em;
 }
 
 .titleContainer {
+  width: 33%;
   color: #C7F1E7;
   font-family: 'Pacifico', cursive;
-  padding-top: 30px;
+  padding-top: 0px;
   font-size: 2em;
+}
+
+.hiscoreContainer {
+  width: 33%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  color: #C7F1E7;
+  font-family: 'Pacifico', cursive;
+  font-size: 1.5em;
 }
 
 .gameContainer {
