@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "7e194bd7f52798bd68fc31c31d03d300",
+    "revision": "92947061f846aae6ab4cd8a9b165a1da",
     "url": "/Dobble-Practice/index.html"
   },
   {
-    "revision": "b06f32677fb80d96e890",
+    "revision": "ff5f1bd785d8e2cbcd7f",
     "url": "/Dobble-Practice/static/css/main.b746f138.chunk.css"
   },
   {
-    "revision": "37a912d6a026b9dc9930",
-    "url": "/Dobble-Practice/static/js/2.ee1dc178.chunk.js"
+    "revision": "1df11b42c8e17383b268",
+    "url": "/Dobble-Practice/static/js/2.d4efae86.chunk.js"
   },
   {
-    "revision": "b06f32677fb80d96e890",
-    "url": "/Dobble-Practice/static/js/main.3a94ff14.chunk.js"
+    "revision": "ff5f1bd785d8e2cbcd7f",
+    "url": "/Dobble-Practice/static/js/main.7ccf5871.chunk.js"
   },
   {
     "revision": "c937dcf5343733a51083",
