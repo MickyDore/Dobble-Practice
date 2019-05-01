@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Game from './Components/Game.js';
 import './Styles/root.css';
-import Countdown, { CountdownApi } from 'react-countdown-now';
+import Countdown, { CountdownApi, zeroPad } from 'react-countdown-now';
 
 class App extends Component {
   countdownApi: CountdownApi | null = null;
@@ -61,7 +61,7 @@ class App extends Component {
   
   render() {
     const renderer = ({ minutes, seconds }) => {
-      return <div>Time Left: 0{minutes}:{seconds}</div>;
+      return <div>Time Left: {zeroPad(minutes, 2)}:{zeroPad(seconds, 2)}</div>;
     };  
     return (
       <div className="appFrame">
@@ -76,6 +76,8 @@ class App extends Component {
               date={this.state.timerDate}
               autoStart={false}
               renderer={renderer}
+              zeroPadTime={1}
+              zeroPad={2}
               ref={this.setRef}
               onComplete={this.handleNewGame}
             >
