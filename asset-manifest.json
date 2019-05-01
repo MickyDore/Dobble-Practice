@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Dobble-Practice/static/css/main.a6876d35.chunk.css",
-    "main.js": "/Dobble-Practice/static/js/main.ea73c454.chunk.js",
-    "main.js.map": "/Dobble-Practice/static/js/main.ea73c454.chunk.js.map",
+    "main.css": "/Dobble-Practice/static/css/main.a3a0a603.chunk.css",
+    "main.js": "/Dobble-Practice/static/js/main.7b83cbe5.chunk.js",
+    "main.js.map": "/Dobble-Practice/static/js/main.7b83cbe5.chunk.js.map",
     "runtime~main.js": "/Dobble-Practice/static/js/runtime~main.d0dfb294.js",
     "runtime~main.js.map": "/Dobble-Practice/static/js/runtime~main.d0dfb294.js.map",
-    "static/js/2.f6c98486.chunk.js": "/Dobble-Practice/static/js/2.f6c98486.chunk.js",
-    "static/js/2.f6c98486.chunk.js.map": "/Dobble-Practice/static/js/2.f6c98486.chunk.js.map",
+    "static/js/2.ee1dc178.chunk.js": "/Dobble-Practice/static/js/2.ee1dc178.chunk.js",
+    "static/js/2.ee1dc178.chunk.js.map": "/Dobble-Practice/static/js/2.ee1dc178.chunk.js.map",
     "index.html": "/Dobble-Practice/index.html",
-    "precache-manifest.7b27cdc3c7116f8ff70ab371950a5104.js": "/Dobble-Practice/precache-manifest.7b27cdc3c7116f8ff70ab371950a5104.js",
+    "precache-manifest.d1bd329957682d737af2e40e9f6b17a0.js": "/Dobble-Practice/precache-manifest.d1bd329957682d737af2e40e9f6b17a0.js",
     "service-worker.js": "/Dobble-Practice/service-worker.js",
-    "static/css/main.a6876d35.chunk.css.map": "/Dobble-Practice/static/css/main.a6876d35.chunk.css.map"
+    "static/css/main.a3a0a603.chunk.css.map": "/Dobble-Practice/static/css/main.a3a0a603.chunk.css.map"
   }
 }
