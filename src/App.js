@@ -4,7 +4,6 @@ import './Styles/root.css';
 import Countdown, { CountdownApi, zeroPad } from 'react-countdown-now';
 
 class App extends Component {
-  countdownApi: CountdownApi | null = null;
   
   constructor(props){
     super(props)
@@ -17,6 +16,8 @@ class App extends Component {
       gameEndingtext: "Click the symbol on the left card that matches with a symbol on the right card!"
     }
   }
+  
+  countdownApi: CountdownApi | null = null;
   
   setRef = (countdown: Countdown | null): void => {
     if (countdown) {
@@ -63,6 +64,7 @@ class App extends Component {
     const renderer = ({ minutes, seconds }) => {
       return <div>Time Left: {zeroPad(minutes, 2)}:{zeroPad(seconds, 2)}</div>;
     };  
+    
     return (
       <div className="appFrame">
         {this.state.activeGame ? "" : <div className="gameInfoContainer">
@@ -76,8 +78,6 @@ class App extends Component {
               date={this.state.timerDate}
               autoStart={false}
               renderer={renderer}
-              zeroPadTime={1}
-              zeroPad={2}
               ref={this.setRef}
               onComplete={this.handleNewGame}
             >

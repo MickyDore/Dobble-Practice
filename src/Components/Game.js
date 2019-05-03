@@ -9,8 +9,6 @@ class Game extends Component {
     super(props)
     
     this.state = {
-      currentHiscore: 0,
-      currentScore: 0,
       currentCard: "",
       currentGameCard: "",
       currentDeck: [],
@@ -28,7 +26,6 @@ class Game extends Component {
   //Subtract a life when a user clicks a symbol that isn't a life
   loseALife = () => {
     this.setState({
-      currentCard: this.state.currentDeck.shift(),
       currentLives: this.state.currentLives - 1
     }, () => {
       if (this.state.currentLives == 0) {
@@ -38,31 +35,92 @@ class Game extends Component {
   }
   
   handleSymbolClick = (symbol) => {
+    console.log(this.state.currentDeck.length);
+    
     //Check if the symbol is the correct match
     let match = utils.findMatch(this.state.currentCard, this.state.currentDeck[0])
     if (symbol == match) {
       this.setState({
         currentCard: this.state.currentDeck.shift()
+      }, () => {
+        this.props.updateScore(this.props.currentScore + 1)
+        if (this.state.currentDeck.length == 1) {
+          this.props.handleNewGame(this.props.currentScore);
+        }
       })
-      this.props.updateScore(this.props.currentScore + 1)
-      if (this.state.currentDeck.length == 0) {
-        alert("Congratulations, you won the game!");
-        this.createGame();
-      }
     } else {
-      this.loseALife()
+      this.setState({
+        currentCard: this.state.currentDeck.shift()
+      }, () => {
+        if (this.state.currentDeck.length == 1) {
+          this.props.handleNewGame(this.props.currentScore);
+        }
+        this.loseALife()
+      })
     }
   }
   
   createGame = () => {
-    let deck = utils.createGame()
-    let currentCard = deck.shift()
-    this.props.updateScore(0)
+    let deck = utils.createGame();
+    let currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    currentCard = deck.shift();
+    this.props.updateScore(0);
     this.setState({
       currentCard: currentCard,
       currentDeck: deck,
-      currentLives: 3,
+      currentLives: 3
     })
+    console.log(this.state.currentDeck.length);
   }
   
   componentWillMount = () => {
@@ -105,7 +163,7 @@ class Game extends Component {
         </div>
         <div className="interactiveContainer">
           <div className="optionsContainer">
-            <div className="optionsButton" onClick={() => this.props.handleNewGame(this.state.currentScore)}>New Game</div>
+            <div className="optionsButton" onClick={() => this.props.handleNewGame(this.props.currentScore)}>New Game</div>
           </div>
           <div className="scoreContainer">Score: {this.props.currentScore}</div>
           <div className="livesContainer">
