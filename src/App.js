@@ -4,10 +4,10 @@ import './Styles/root.css';
 import Countdown, { CountdownApi, zeroPad } from 'react-countdown-now';
 
 class App extends Component {
-  
+
   constructor(props){
     super(props)
-    
+
     this.state = {
       activeGame: false,
       currentScore: 0,
@@ -16,15 +16,16 @@ class App extends Component {
       gameEndingtext: "Click the symbol on the left card that matches with a symbol on the right card!"
     }
   }
-  
+
   countdownApi: CountdownApi | null = null;
-  
+
   setRef = (countdown: Countdown | null): void => {
     if (countdown) {
       this.countdownApi = countdown.getApi();
     }
   };
-  
+
+  //Function to be called when the current game session is ended
   handleNewGame = () => {
     if (this.state.currentScore > this.state.currentHiScore) {
       this.setState({
@@ -43,8 +44,10 @@ class App extends Component {
         })
       }
   }
-  
+
+  //Function to handle creating a new game
   startNewGame = () => {
+    //Game component is updated when changing activeGame state to true
     this.setState({
       activeGame: true,
       timerDate: Date.now() + 180000
@@ -52,19 +55,20 @@ class App extends Component {
       this.countdownApi.start();
     })
   }
-  
+
+  //Change score upon finding a successful matching symbol
   updateScore = (score) => {
     this.setState({
       currentScore: score
     })
   }
-  
-  
+
+
   render() {
     const renderer = ({ minutes, seconds }) => {
       return <div>Time Left: {zeroPad(minutes, 2)}:{zeroPad(seconds, 2)}</div>;
-    };  
-    
+    };
+
     return (
       <div className="appFrame">
         {this.state.activeGame ? "" : <div className="gameInfoContainer">
@@ -73,7 +77,7 @@ class App extends Component {
         </div> }
         <div className="headerContainer">
           <div className="timerContainer">
-            <Countdown 
+            <Countdown
               key={this.state.timerDate}
               date={this.state.timerDate}
               autoStart={false}
@@ -87,7 +91,7 @@ class App extends Component {
           <div className="hiscoreContainer">HiScore: {this.state.currentHiScore}</div>
         </div>
 
-        <Game 
+        <Game
           currentHiScore={this.state.currentHiScore}
           handleNewGame={this.handleNewGame}
           activeGame={this.state.activeGame}
@@ -98,7 +102,7 @@ class App extends Component {
       </div>
     );
   }
-  
+
 }
 
 export default App;

@@ -7,23 +7,25 @@ class Game extends Component {
 
   constructor(props) {
     super(props)
-    
+
     this.state = {
       currentCard: "",
       currentGameCard: "",
       currentDeck: [],
       currentLives: 3,
     }
-    
   }
-  
+
+  //Check to see if a new game has been started
   componentDidUpdate = (nextProps, nextState) => {
+    //If the parent component's activeGame state has changed from false to true
     if ((!this.props.activeGame) && (nextProps.activeGame)) {
+      //then create a new game
       this.createGame();
     }
   }
-  
-  //Subtract a life when a user clicks a symbol that isn't a life
+
+  //Subtract a life when a user clicks a symbol that isn't a match
   loseALife = () => {
     this.setState({
       currentLives: this.state.currentLives - 1
@@ -33,10 +35,10 @@ class Game extends Component {
       }
     })
   }
-  
+
+  //Function to be called every time the user clicks on a symbol
   handleSymbolClick = (symbol) => {
-    console.log(this.state.currentDeck.length);
-    
+
     //Check if the symbol is the correct match
     let match = utils.findMatch(this.state.currentCard, this.state.currentDeck[0])
     if (symbol == match) {
@@ -59,74 +61,25 @@ class Game extends Component {
       })
     }
   }
-  
+
+  //Creates a new deck of shuffled cards and resets the user's lives to 3
   createGame = () => {
-    let deck = utils.createGame();
-    let currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
-    currentCard = deck.shift();
+    let deck = utils.createGame(); //create a new deck of cards
+    let currentCard = deck.shift(); //take the first card from the deck 
+
     this.props.updateScore(0);
     this.setState({
       currentCard: currentCard,
       currentDeck: deck,
       currentLives: 3
     })
-    console.log(this.state.currentDeck.length);
   }
-  
+
+  //Create a new game so that cards can be rendered and displayed
   componentWillMount = () => {
     this.createGame();
   }
-  
+
   render() {
     let lives = [];
     for (var i = 0; i < this.state.currentLives; i++) {
