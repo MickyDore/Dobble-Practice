@@ -71,10 +71,6 @@ class App extends Component {
 
     return (
       <div className="appFrame">
-        {this.state.activeGame ? "" : <div className="gameInfoContainer">
-          <div className="gameInfoTextContainer">{this.state.gameEndingtext}</div>
-          <div onClick={() => this.startNewGame()} className="gameInfoButton">New Game</div>
-        </div> }
         <div className="headerContainer">
           <div className="timerContainer">
             <Countdown
@@ -90,15 +86,20 @@ class App extends Component {
           <div className="titleContainer">Spot the match!</div>
           <div className="hiscoreContainer">HiScore: {this.state.currentHiScore}</div>
         </div>
-
-        <Game
+        {this.state.activeGame ? <Game
           currentHiScore={this.state.currentHiScore}
           handleNewGame={this.handleNewGame}
           activeGame={this.state.activeGame}
           currentScore={this.state.currentScore}
           updateScore={this.updateScore}
         >
-        </Game>
+        </Game> : <div className="gameInfoContainer">
+          <div className="gameInfoTextContainer">{this.state.gameEndingtext}</div>
+          <div onClick={() => this.startNewGame()} className="gameInfoButton">New Game</div>
+        </div> }
+
+
+
       </div>
     );
   }

@@ -65,7 +65,7 @@ class Game extends Component {
   //Creates a new deck of shuffled cards and resets the user's lives to 3
   createGame = () => {
     let deck = utils.createGame(); //create a new deck of cards
-    let currentCard = deck.shift(); //take the first card from the deck 
+    let currentCard = deck.shift(); //take the first card from the deck
 
     this.props.updateScore(0);
     this.setState({
@@ -94,11 +94,10 @@ class Game extends Component {
               let randomAngle = (Math.floor(Math.random() * 90 + 1) - 45);
               return <div
                 key={index}
-                style={{transform: `rotate(${randomAngle}deg)`}}
                 value={symbol}
                 onClick={() => this.handleSymbolClick(symbol)}
                 className="symbol symbol-player">
-                  <img alt="symbol" src={`${iconPath}${symbol}.png`} />
+                  <img alt="symbol" style={{transform: `rotate(${randomAngle}deg)`}} src={`${iconPath}${symbol}.png`} />
                 </div>
             })}
           </div>
@@ -107,9 +106,8 @@ class Game extends Component {
               let randomAngle = (Math.floor(Math.random() * 90 + 1) - 45);
               return <div
                 key={index}
-                style={{transform: `rotate(${randomAngle}deg)`}}
                 className="symbol">
-                  <img alt="symbol" src={`${iconPath}${symbol}.png`} />
+                  <img alt="symbol" style={{transform: `rotate(${randomAngle}deg)`}} src={`${iconPath}${symbol}.png`} />
                 </div>
             })}
           </div>

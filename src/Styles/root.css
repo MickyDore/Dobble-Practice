@@ -13,11 +13,7 @@
 }
 
 .gameInfoContainer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 80%;
+  width: 90%;
   height: calc(100vh - 150px);
   margin: 15px auto;
   border-radius: 25px;
@@ -49,7 +45,7 @@
 
 
 .headerContainer {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   padding: 0px 10px;
   padding-top: 15px;
@@ -85,7 +81,7 @@
 }
 
 .gameContainer {
-  width: 80%;
+  width: 90%;
   height: calc(100vh - 150px);
   border: 3px solid #C7F1E7;
   margin: 15px auto;
@@ -104,24 +100,25 @@
 }
 
 .card {
-  width: 400px;
-  height: 250px;
+  width: 45%;
+  height: 80%;
   background-color: #C7F1E7;
   border-radius: 25px;
-  padding: 10px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
 .card-player {
-    border: 2px solid #f1c40f;
+  border: 2px solid #f1c40f;
 }
 
 .symbol {
-  width: 25%;
-  height: 45%;
-  padding: 15px;
+  width: 22%;
+  height: 47%;
+  padding: 3%;
+  display: inline-flex;
+  align-items: center;
 }
 
 .symbol-player {
@@ -209,6 +206,7 @@
   .gameContainer {
     padding: 20px;
     height: auto;
+    width: 90%;
   }
 
   .cardsContainer {
@@ -219,6 +217,12 @@
   .card {
     width: 100%;
     margin: 20px 0px;
+  }
+
+  .symbol {
+    width: 25%;
+    height: 50%;
+    padding: 10px;
   }
 
   .interactiveContainer {
@@ -238,6 +242,31 @@
     border-bottom: 3px solid #C7F1E7;
     border-left: 0px;
     border-right: 0px;
+  }
+
+  .gameInfoContainer {
+    width: 90%;
+  }
+
+  .headerContainer {
+    width: 90%;
+    flex-direction: column-reverse;
+  }
+
+  .timerContainer {
+    width: 100%;
+    justify-content: center;
+    font-size: 1.5em;
+  }
+
+  .titleContainer {
+    width: 100%;
+    font-size: 2.2em;
+  }
+
+  .hiscoreContainer {
+    width: 100%;
+    justify-content: center;
   }
 
 }
