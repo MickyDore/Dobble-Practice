@@ -53,17 +53,17 @@
 }
 
 .timerContainer {
-  width: 33%;
+  width: 30%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
   color: #C7F1E7;
   font-family: 'Pacifico', cursive;
-  font-size: 1.5em;
+  font-size: 1.4em;
 }
 
 .titleContainer {
-  width: 33%;
+  width: 40%;
   color: #C7F1E7;
   font-family: 'Pacifico', cursive;
   padding-top: 0px;
@@ -71,13 +71,13 @@
 }
 
 .hiscoreContainer {
-  width: 33%;
+  width: 30%;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   color: #C7F1E7;
   font-family: 'Pacifico', cursive;
-  font-size: 1.5em;
+  font-size: 1.4em;
 }
 
 .gameContainer {
@@ -167,15 +167,13 @@
   height: 100%;
   color: #C7F1E7;
   font-family: 'Pacifico', cursive;
-  font-size: 1.8em;
   display: flex;
-  padding-left: 10px;
-  justify-content: space-between;
+  align-items: center;
 }
 
 .livesTextContainer {
-  width: 25%;
-  display: inline-flex;
+  font-size: 1.8em;
+  padding-left: 15px;
   align-items: center;
 }
 
@@ -183,21 +181,20 @@
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: space-around;
   align-items: center;
 }
 
 .heartIcon {
+  width: 33%;
   height: 100%;
   padding: 10px;
-  display: inline-block;
 }
 
 .heartIcon img {
   height: 100%;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 680px) {
 
   .appFrame {
     height: 100%;
@@ -220,9 +217,8 @@
   }
 
   .symbol {
-    width: 25%;
-    height: 50%;
-    padding: 10px;
+    width: 22%;
+    padding: 15px;
   }
 
   .interactiveContainer {
